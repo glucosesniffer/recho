@@ -20,10 +20,10 @@ fn main() {
     )
     .get_matches();
 
-    let text = matches.values_of_lossy("text").unwrap().join(" ");
-    let omit_newline = matches.is_present("omit_newline");
-    let ending = if omit_newline { "" } else {"\n"}; 
+    let text: String = matches.values_of_lossy("text").unwrap().join(" ");
+    let omit_newline: bool = matches.is_present("omit_newline");
+    let ending: &str = if omit_newline { "" } else {"\n"}; 
 
-    println!("{} {}", text, ending);
+    print!("{} {}", text, ending);
 }
 
